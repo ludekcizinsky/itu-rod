@@ -1,0 +1,104 @@
+% DFF template for Latex and A4 paper.
+% 12pt Times New Roman on 1.15 line spacing and 2 cm margins.
+
+% ----------------------------------------------------------------------
+
+% Either format with 
+%    pdflatex projectdescription.tex
+% Or if you use dvips and ps2pdf, remember to specify A4 paper:
+%    latex  projectdescription
+%    dvips  -ta4 projectdescription -o projectdescription.ps
+%    ps2pdf -sPAPERSIZE=a4 projectdescription.ps
+
+% -----------------------------------------------------------------------
+
+\documentclass[fleqn,12pt]{article}
+%Do not change this geometry settings
+\usepackage[a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+\usepackage{times}
+\usepackage[english]{babel}
+\addto\captionsenglish{% Replace "english" with the language you use
+  \renewcommand{\contentsname}%
+    {Table of Contents}%
+}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[numbers,sort&compress]{natbib}
+%\usepackage[pdftex]{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage{caption}
+\usepackage{subfig}
+
+\sectionfont{\fontsize{12}{15}\selectfont}
+\hypersetup{
+    colorlinks=true,
+    linkcolor = black,
+    citecolor =blue,
+    filecolor=blue,      
+    urlcolor=blue,
+}
+\usepackage{graphicx}         % For PDF figure
+% \usepackage[dvips]{graphicx}  % For EPS figures, using dvips + ps2pdf
+\setcounter{secnumdepth}{0}
+\begin{document}
+
+\setlength{\baselineskip}{1.15\baselineskip}
+
+
+% ---------------------------------------------------------------------
+
+\begin{center}
+  {\Huge Reflections on Data Science 2023}\\[2ex]
+  {Lukas Rasocha, Gergo Gyori, Katalin Literati-Dobos, Ludek Cizinsky}\\
+  [2ex]
+  {\{lukr,gegy,klit,luci\}@itu.dk}\\[2ex]
+\end{center}
+
+\tableofcontents
+
+% ----------------------------------------------------------------------
+
+%\parskip=3mm
+
+%\noindent
+
+\parindent=20pt 
+\parskip=0mm
+
+\newpage
+
+
+\section{\#3. Lead author: [Lukas Rasocha], Calling BS on \href{https://twitter.com/JunkScience/status/1613724250011242497?s=20}{"Steve Milloy's tweet claiming that global warming due to C02 emmission is a hoax."} (January, 2023)} 
+
+Steve Milloy, the author of the \href{https://twitter.com/JunkScience/status/1613724250011242497?s=20}{tweet}, argues that global warming caused by CO2 emissions is a hoax, 
+based on a figure comparing yearly temperature to the 20th-century average. He includes a regression line to support his claim of a cooling trend and a declining temperature rate. 
+However, Milloy's \textbf{visualization is misleading}. Figure \ref{fig:entry3} presents both Milloy's figure and the original figure from the \href{https://www.noaa.gov/news/2022-was-worlds-6th-warmest-year-on-record}{NOAA's press release}, 
+contradicting his assertions.
+
+The original figure intends to demonstrate that it has been 46 years since the average yearly temperature was cooler than the 20th-century average. 
+Furthermore, it highlights that the years 2014 to 2022 rank among the ten warmest years. Thus, the author distorts the visualization by selectively zooming in on a small portion of the original figure, obscuring the overall long-term warming trend. 
+Additionally, Professor of geosciences at Princeton University Gabriel Vecchi explains in one of the \href{https://www.factcheck.org/2023/01/scicheck-viral-tweet-misrepresents-noaa-report-on-rising-global-temperature/}{articles} 
+that climate patterns such as \href{https://oceanservice.noaa.gov/facts/ninonina.html}{El Niño and La Niña} can cause temporary surface warming and cooling, resulting in fluctuations in the warming rate over short periods. 
+Consequently, cherry-picking specific timeframes to portray a trend is an invalid approach.
+
+Global warming is an ongoing and significant issue, with substantial efforts already undertaken. 
+However, much work remains, and politicians play a critical role in driving change to mitigate global warming. 
+To facilitate the implementation of measures by politicians, it is essential to ensure the public is well-informed. 
+Unfortunately, tweets like the one by Steve Milloy only deepen divisions among people's opinions instead of fostering unity. 
+As a consequence, progress towards achieving zero CO2 emissions is hindered, slowing down potential advancements.
+
+\begin{figure}[h!]
+    \centering
+    \begin{tabular}{cc}
+        \subfloat[Steve Milloy's figure used in his \href{https://twitter.com/JunkScience/status/1613724250011242497?s=20}{tweet}.]{\includegraphics[width = 3in]{figures/e1_fig1.png}} &
+        \subfloat[Original figure from \href{https://www.noaa.gov/news/2022-was-worlds-6th-warmest-year-on-record}{NOAA's press release}.]{\includegraphics[width = 3in]{figures/e2_fig2.png}} \\
+    \end{tabular}
+    \caption{Supporting evidence for the third entry.}
+    \label{fig:entry3}
+\end{figure}
+
+\newpage
+
+\end{document}
