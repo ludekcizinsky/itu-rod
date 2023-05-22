@@ -1,35 +1,24 @@
-% DFF template for Latex and A4 paper.
-% 12pt Times New Roman on 1.15 line spacing and 2 cm margins.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% About %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ----------------------------------------------------------------------
+% Reflections on Data Science bullshit journal.
 
-% Either format with 
-%    pdflatex projectdescription.tex
-% Or if you use dvips and ps2pdf, remember to specify A4 paper:
-%    latex  projectdescription
-%    dvips  -ta4 projectdescription -o projectdescription.ps
-%    ps2pdf -sPAPERSIZE=a4 projectdescription.ps
-
-% -----------------------------------------------------------------------
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Doc Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ----------------------------------------------------------------------
 \documentclass[fleqn,12pt]{article}
-%Do not change this geometry settings
 \usepackage[a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
 \usepackage{times}
 \usepackage[english]{babel}
-\addto\captionsenglish{% Replace "english" with the language you use
+\addto\captionsenglish{
   \renewcommand{\contentsname}%
     {Table of Contents}%
 }
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[numbers,sort&compress]{natbib}
-%\usepackage[pdftex]{graphicx}
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{sectsty}
 \usepackage{caption}
-%\usepackage{subfig}
 \usepackage{booktabs}
 \usepackage{subcaption}
 
@@ -41,27 +30,23 @@
     filecolor=blue,      
     urlcolor=blue,
 }
-\usepackage{graphicx}         % For PDF figure
-% \usepackage[dvips]{graphicx}  % For EPS figures, using dvips + ps2pdf
+\usepackage{graphicx}
 \setcounter{secnumdepth}{0}
-\begin{document}
 
+\begin{document}
 \setlength{\baselineskip}{1.15\baselineskip}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FRONT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ---------------------------------------------------------------------
 
 \begin{center}
   {\Huge Reflections on Data Science 2023}\\[2ex]
-  {Lukas Rasocha, Gergo Gyori, Katalin Literati-Dobos, Ludek Cizinsky}\\
+  {Ludek Cizinsky, Lukas Rasocha, Gergo Gyori, Katalin Literati-Dobos}\\
   [2ex]
-  {\{lukr,gegy,klit,luci\}@itu.dk}\\[2ex]
+  {\{luci,lukr,gegy,klit\}@itu.dk}\\[2ex]
 \end{center}
 
 \tableofcontents
-
-% ----------------------------------------------------------------------
-
 \parindent=20pt 
 \parskip=0mm
 \newpage
@@ -90,9 +75,6 @@ amount of growth or decrease in prices would be reported by the other providers.
 kind of prices Eurostat uses for their computations. It is fair to assume that she would not post such tweet after the proper due dilligence since the change in prices is 
 far less shocking (see above). The clear con of Schillerova's tweet is that it spreads panic among people. On the other hand, it seems to now speed up the process of coming up with 
 legislation that requires energy companies to report the actually paid prices.
-
-
-
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ENTRY 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -162,7 +144,6 @@ For most of the nations, it would take more than a decade which is in line with 
   \caption{Data in both tables were obtained using World Bank's \href{https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.CD?locations=FR-PL}{database} and the whole computation procedure is computed 
   in this \href{bit.ly/is-poland-king}{notebook}.}
 \end{table}
-
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ENTRY 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
