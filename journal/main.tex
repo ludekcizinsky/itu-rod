@@ -29,8 +29,9 @@
 \usepackage{xcolor}
 \usepackage{sectsty}
 \usepackage{caption}
-\usepackage{subfig}
+%\usepackage{subfig}
 \usepackage{booktabs}
+\usepackage{subcaption}
 
 \sectionfont{\fontsize{12}{15}\selectfont}
 \hypersetup{
@@ -92,6 +93,76 @@ As a consequence, some countries, such as Czechia, report the prices for new con
 while other countries, such as Austria (\href{https://www.idnes.cz/ekonomika/domaci/eurostat-ceny-plynu-statistika-petr-fiala.A230428_162329_ekonomika_ihal}{source}), 
 report the actual paid prices (since they have access to them by law). 
 Therefore, Schillerova's comparison statements, such as Czechia is the worst in the EU when it comes to the growth in gas prices, are not valid since she is making an \textbf{unfair comparison}.
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ENTRY 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ----------------------------------------------------------------------
+\section{\#2. Lead author: [Ludek Cizinsky], Calling BS on \href{https://twitter.com/d_foubert/status/1660076858451402752?s=20}{"A few more years and the Poles will 
+be richer than most Western European nations in terms of real domestic economic activity."} (May, 2023)}
+In the start of his tweet, Foubert correctly states that Poland is catching up with France when it comes to Gross Domestic Product (GPD) at Purchasing Power Parity (PPP) per capita, i.e., gross domestic product 
+which accounts for living costs in the given country. I verified the stated numbers using the World Banks's \href{https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.CD?locations=FR-PL}{database}. 
+However, I call BS on his second statement in which he claims that \textit{in a few more years Poles will be richer than most Western European nations in terms of real domestic economic activity} 
+which I plan to refute using \textbf{Fermi estimation}. I first decided to investigate when will Poland catch up with France since Foubert is using it as a reference in the tweet. 
+I used again the World Bank's \href{https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.CD?locations=FR-PL}{database} to compute average year to year growth rate of GPD at PPP per capita in the past two 
+pre COVID-19 years, i.e., I compared 2019 vs 2018 and 2018 vs 2017. This yielded a rough estimate of $0.08$ for Poland and $0.06$ for France. I then made a simplifying assumption that 
+both nations will keep this growth rate for the given number of years.  Therefore, to compute GPD at PPP per capita in $N$ years, I used the following formula:
+$s*(1 + gr)^N$ where $s$ is the starting value of GDP at PPP per capita and $gr$ is the growth rate. This led me to a conclusion that it would take roughly 16 years for Poland to 
+overtake France which clearly refutes the few years claim of Foubert. To further support my estimate and given the availability of World Bank's
+\href{https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.CD?locations=FR-PL}{data}, I have done more fine grained estimate of growth using past 10 years of pre COVID years (2010 to 2019) for 
+nations which are geographically Western European nations, see table \ref{subtable:meangr}. I decided to exclude Ireland which had growth rate higher than Poland, as such Poland would 
+never catch up given my methodology. I then used my formula to compute the number of years it would take Poland to overtake given nation in GDP at PPP per capita (see table \ref{subtable:overtake}). 
+For most of the nations, it would take more than a decade which in line with my initial estimate, thus providing further evidence that refutes Foubert's statement.
+
+\begin{table}[h!]
+  \centering
+  \begin{subtable}[t]{0.45\linewidth}
+    \centering
+    \begin{tabular}[t]{lr}
+      \toprule
+      Country & Growth \\
+      \midrule
+      Romania & 0.072 \\
+      \textbf{Poland} & \textbf{0.062} \\
+      Czechia & 0.048 \\
+      Germany & 0.046 \\
+      Belgium & 0.040 \\
+      Austria & 0.039 \\
+      France & 0.039 \\
+      Portugal & 0.035 \\
+      United Kingdom & 0.035 \\
+      Luxembourg & 0.033 \\
+      Switzerland & 0.033 \\
+      Netherlands & 0.031 \\
+      Spain & 0.030 \\
+      \bottomrule
+    \end{tabular}
+    \caption{Mean Year-to-Year Growth of GDP at PPP per capita between 2010 and 2019.}\label{subtable:meangr}
+  \end{subtable}
+  \hspace{1em}
+  \begin{subtable}[t]{0.45\linewidth}
+    \centering
+    \begin{tabular}[t]{lr}
+      \toprule
+      Country & Overtake in (years) \\
+      \midrule
+      Portugal & 0 \\
+      Spain & 3 \\
+      United Kingdom & 12 \\
+      France & 14 \\
+      Netherlands & 18 \\
+      Austria & 21 \\
+      Belgium & 22 \\
+      Switzerland & 26 \\
+      Germany & 28 \\
+      Luxembourg & 46 \\
+      \bottomrule
+    \end{tabular}
+    \caption{How long would it take Poland to overtake the given country in GDP at PPP per capita}\label{subtable:overtake}
+  \end{subtable}
+  \caption{Data in both tables were obtained using World Bank's \href{https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.CD?locations=FR-PL}{database} and the whole computation procedure is computed 
+  in this \href{bit.ly/is-poland-king}{notebook}.}
+\end{table}
+
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ENTRY 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
