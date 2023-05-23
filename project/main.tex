@@ -1,0 +1,86 @@
+% DFF template for Latex and A4 paper.
+% 12pt Times New Roman on 1.5 line spacing and 2 cm margins.
+
+% ----------------------------------------------------------------------
+
+% Either format with 
+%    pdflatex projectdescription.tex
+% Or if you use dvips and ps2pdf, remember to specify A4 paper:
+%    latex  projectdescription
+%    dvips  -ta4 projectdescription -o projectdescription.ps
+%    ps2pdf -sPAPERSIZE=a4 projectdescription.ps
+
+% ----------------------------------------------------------------------
+
+\documentclass[fleqn,12pt]{article}
+%Do not change this geometry settings
+\usepackage[a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+\usepackage{times}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[pdftex]{graphicx}
+\usepackage{hyperref}
+%\usepackage{titlesec}
+\hypersetup{
+    colorlinks=true,
+    linkcolor = black,
+    citecolor =blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+% \usepackage{graphicx}         % For PDF figures
+% \usepackage[dvips]{graphicx}  % For EPS figures, using dvips + ps2pdf
+
+\begin{document}
+% Empirically this seems to match MS Word's idea of 1.5 line spacing.
+% DO NOT CHANGE
+\setlength{\baselineskip}{1.44\baselineskip}
+
+
+% ----------------------------------------------------------------------
+% Enter the topic of the project and your names 
+
+\begin{flushleft}
+  {\large Group member 1 (xxxx@itu.dk), BSc Data Science \\
+  Group member 2 (xxxx@itu.dk), BSc Data Science \\
+  Group member 3 (xxxx@itu.dk), BSc Data Science \\}
+ \end{flushleft}
+ 
+\begin{center}
+  {\Large Reflections on Data Science 2021}\\[5ex]
+  {\Large Topic}\\[5ex]
+
+ \end{center}
+ 
+
+% ----------------------------------------------------------------------
+% Delete the instruction 
+
+%\parskip=3mm
+
+%\noindent
+
+\parindent=20pt 
+\parskip=0mm
+
+\section{Choose your own title for the sections}
+
+This is a reference \cite{bergstrom2020calling}.
+
+\section{Don't forget sections about the implementation and the results of the experiment, your design choices, parameters selection, and methods used}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+% ----------------------------------------------------------------------
+% References 
+
+ \newpage 
+%\section*{References}
+\small
+References do not count towards the 6 pages limit.
+\bibliographystyle{unsrt}
+\bibliography{yourbib}
+
+\end{document}
