@@ -1,5 +1,16 @@
 \begin{thebibliography}{1}
 
+\bibitem{muchnik}
+Lev Muchnik, Sinan Aral, and Sean~J. Taylor.
+\newblock Social influence bias: A randomized experiment.
+\newblock {\em Science}, 341(6146):647--651, 2013.
+
+\bibitem{salganik}
+Matthew~J. Salganik, Peter~Sheridan Dodds, and Duncan~J. Watts.
+\newblock Experimental study of inequality and unpredictability in an
+  artificial cultural market.
+\newblock {\em Science}, 311(5762):854--856, 2006.
+
 \bibitem{bergstrom2020calling}
 C.T. Bergstrom and J.D. West.
 \newblock {\em Calling Bullshit: The Art of Skepticism in a Data-Driven World}.
