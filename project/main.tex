@@ -73,16 +73,36 @@ like Reddit, often outperform average posts significantly,
 which indicates a qualitative difference between popular posts 
 and the rest. With this phenomenon an interesting question emerges:
 is the success of a post attributable to its inherent quality,
-or is it influenced by the herd effect? This social psychological 
+or is it influenced by the herd effect? The social psychological 
 behaviour that leads individuals to perceive an action as the 
 appropriate course simply because it's what "everyone else" 
 seems to be doing. This effect has already been documented in various studies such as \cite{muchnik} \cite{salganik}.
-In this study we aim to investigate the herd effect on Reddit, more
+In this study we aim to investigate the herd effect on the Reddit platform, more
 concretely, we want to find out to what extent does an initial upvote to a post
 influence its future score?
 
 
 \section{Experiment implementation}
+Similar to Muchnik et al. \cite{muchnik}, to test the effect of a social
+influence on upvoting reddit posts we conducted a randomised control trial.
+For the continous period of seven days we collected and monitored recently published posts with no upvotes 
+nor comments from the subreddit \textit{r/all}, and randomly assigned them 
+to two categories: \textit{treatment} and \textit{control}.
+The treatment group received an initial upvote, while the control group did not. 
+The experiment was scheduled to run daily to ensure that the collected posts
+had at least 24 hour period between the score loggings.
+
+After the experimentation period ended, we aimed to test the following null hypothesis, with a significance
+threshold $\alpha$ set to 0.05:
+\textit{A treatment of a post does not influences its score (number of upvotes minus downvotes) in the future.}
+Before the testing, some pre-processing steps were necessary. 
+First, we removed the posts which were not continously monitored for a week and secondly,
+to account for our initial upvote, we subtracted it from the posts' last day scores.
+This resulted in a total number of $1578$ posts, i.e. $789$ treated posts and $789$ control posts. 
+Finally, since we did not want to make assumptions about the underlying 
+distribution of the data, we used non-parametric tests, namely Empirical bootstrap and Kolmogorov-Smirnov test, to
+confirm or reject the studied null hypothesis.
+
 
 \section{Results and discussion}
 
