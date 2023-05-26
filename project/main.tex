@@ -103,8 +103,99 @@ Finally, since we did not want to make assumptions about the underlying
 distribution of the data, we used non-parametric tests, namely Empirical bootstrap and Kolmogorov-Smirnov test, to
 confirm or reject the studied null hypothesis.
 
+\section{Results}
+In this study we investigated the impact of initial positive
+engagement on the future popularity of Reddit posts and whether 
+such initial engagement can lead to a herd effect amongst users. 
+Below we show the results of our experiment in terms of the scores of the posts
+that are measured as a difference between the number of upvotes and downvotes.
 
-\section{Results and discussion}
+The analysis began with the examination of basic summary statistics
+of both the control and treatment groups with a focus
+on the last day of the monitoring period for each post. Interestingly enough,
+the mean score of the control group ($52.67$) was higher than of the treatment group ($35.51$),
+which might suggest that the initial upvote had a negative effect on the future score of the posts.
+However, it is important to note, that the standard deviation of both groups was very high, 
+i.e. $417.63$ and $190.21$ for the control and treatment groups respectively, which indicates
+that the scores of the posts were very spread out. So a few outliers that received a lot of upvotes
+in the control group could have skewed the mean score upwards. This is furher supported by the median
+which was $1$ for both groups.
+
+Furthermore, these statistics only describe the distributions 
+within each group. To determine whether there's a significant 
+difference between the two groups, that is whether the 
+initial upvote has a significant effect on the final score a post 
+receives, we need to conduct other in depth statistical tests.
+Since the skewness in the data could potentially violate assumptions
+of some popular statistical tests, such as the t-test, we decided to use
+non-parametric tests.
+
+The null hypothesis
+that the treatment has no effect on the future score of a post
+could be tested by looking at the observed difference of the means of both groups
+and then asking a question, how likely it is to observe such a difference
+if the null hypothesis is true. If the probability of observing such a difference
+is low (less than the significance threshold $\alpha$), then we can reject the null hypothesis.
+Empirical bootstrap is a statistical technique that uses an empirical distribution 
+function as an estimate of the true distribution of data. Since
+the observed difference is itself a random variable we can use a bootstrap simulation
+to estimate the true distribution of mean differences and then calculate the probability.
+From the $1000$ bootstrapped mean values in Figure \ref{fig:bootstrap_both_means} of both groups we can observe both the mean difference
+and the larger spread of the control group. In order to test
+whether our observed difference is significant we used Figure \ref{fig:mean_difference},
+where the 1000 bootstrapped mean differences are plotted with a red and blue lines
+indicating the 95\% confidence interval. Since the confidence interval contains zero, the
+probability of both means being equal is above the significance threshold $\alpha = 0.05$ and 
+thus the null hypothesis cannot be rejected. 
+To find the exact $p$-value we can calculate
+the proportion of bootstrapped mean differences that are greater or equal to the observed difference.
+The $p$-value is $0.47$ showing that our observed difference could have been observed by chance
+and that the initial upvote has no significant effect on the future score of a post.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.4\textwidth]{figures/both_means.png}
+  \caption{Bootstrapped means of control and treatment groups}
+  \label{fig:bootstrap_both_means}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.4\textwidth]{figures/mean_difference.png}
+  \caption{Bootstrapped means differences of control and treatment groups}
+  \label{fig:mean_difference}
+\end{figure}
+
+Since the empirical bootstrap is looking at a single statistic (e.g. the mean difference)
+it does not take into account the whole distribution of the data. For this
+purpose we used the Kolmogorov-Smirnov (KS) test, which evaluates
+whether the overall distributions of both groups are the same. 
+The KS test showed a $p$-value of $6.77 \times 10^{-23}$ which indicates
+that the control and treatment groups come from different distributions,
+as their Empirical Cumulative Distribution Function (ECDF) significantly differ.
+To further convince ourselves we plotted the ECDFs of both groups in Figure \ref{fig:ecdf}, which 
+don't seem to differ much.
+If we were to remove the low end of the scores (e.g. scores equal or less than 1) the $p$-value
+jumps to $0.17$ suggesting that the difference is primarily 
+driven by the posts that have scores of 1 or less, so there is no 
+significant difference for the posts with the score of 2 or more.
+This difference may thus be attributed to the randomness of vote fuzzing that will
+be further discussed in the next section.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/ecdf.png}
+  \caption{ECDF of control and treatment groups}
+  \label{fig:ecdf}
+\end{figure}
+
+To sumarise, according to our experiment and the data collected, one
+could not confidently say that the initial upvote has any significant effect on the final 
+score of a reddit post. This, together
+with the experiment limitations will be further discussed 
+in the next section.
+
+\section{Discussion}
 
 Discuss your findings in light of the theories and concepts covered in the course (e.g., causality, experimental designs,
 extraneous variables, social influence, reproducibility, etc.)
