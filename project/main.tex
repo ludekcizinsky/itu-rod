@@ -149,7 +149,7 @@ probability of both means being equal is above the significance threshold $\alph
 thus the null hypothesis cannot be rejected. 
 To find the exact $p$-value we can calculate
 the proportion of bootstrapped mean differences that are greater or equal to the observed difference.
-The $p$-value is $0.47$ showing that our observed difference could have been observed by chance
+The $p$-value is $0.47$ showing that our observed difference could have happenned by a pure chance
 and that the initial upvote has no significant effect on the future score of a post.
 
 \begin{figure}[h]
@@ -175,9 +175,9 @@ that the control and treatment groups come from different distributions,
 as their Empirical Cumulative Distribution Function (ECDF) significantly differ.
 To further convince ourselves we plotted the ECDFs of both groups in Figure \ref{fig:ecdf}, which 
 don't seem to differ much.
-If we were to remove the low end of the scores (e.g. scores equal or less than 1) the $p$-value
-jumps to $0.17$ suggesting that the difference is primarily 
-driven by the posts that have scores of 1 or less, so there is no 
+That is why we attempted to remove the low end of the scores (i.e. scores equal to or less than 1) which resulted in a $p$-value
+of $0.17$ suggesting that the difference is primarily 
+driven by the posts that have scores of 1 or less with no 
 significant difference for the posts with the score of 2 or more.
 This difference may thus be attributed to the randomness of vote fuzzing that will
 be further discussed in the next section.
@@ -190,19 +190,77 @@ be further discussed in the next section.
 \end{figure}
 
 To sumarise, according to our experiment and the data collected, one
-could not confidently say that the initial upvote has any significant effect on the final 
+could not confidently say that an initial upvote has any significant effect on the final 
 score of a reddit post. This, together
-with the experiment limitations will be further discussed 
-in the next section.
+with the experiment's limitations will be further discussed 
+in the following section.
 
 \section{Discussion}
 
-Discuss your findings in light of the theories and concepts covered in the course (e.g., causality, experimental designs,
-extraneous variables, social influence, reproducibility, etc.)
+The goal of our experimental design was to examine a null hypothesis
+that a treatment has no effect on the future score of a post. To
+test this hypothesis we employed a field experiment on the Reddit platform from which
+we sampled new posts and randomly assigned them to our treatment and control groups.
+This gave us the ability to assess the effect of our independent variable, the initial upvote,
+on a quantifiable dependent variable, the future score of the post, while
+still giving us some degree of control over the extraneous variables. 
+This control stems from our sampling approach, by choosing
+only recent posts that received no upvotes or comments and
+the underlying premise of the randomisation approach which assumes
+that with a sufficiently large sample size, the extraneous variables
+will on average be equally distributed between both the groups, thus any
+difference in the dependent variable could be attributed to the independent variable.
+Nevertheless, due to the huge variability of posts on Reddit in terms
+of content, length, time of posting and the diverse nature of the Reddit community,
+we argue that our sample size of $1578$ posts might not be large enough to
+fully remedy the potential confounding effects of the extraneous factors.
 
-Since we learned a bit too late about the vote fuzzing our experiment only recorded the overall score of the posts, while not looking at changing number of comments
-which might have been a better indication (no comment count fuzzing).
+Another substantial limitation, which we discovered too late in the process,
+was the vote fuzzing mechanism employed by Reddit to prevent vote manipulation. This mechanism
+randomly adds or subtracts a small number of votes from the post's actual score, which in addition
+is not visible to the user for some time after the post is submitted.
+This makes it difficult to assess the true effect of the initial upvote
+on the post's future score as the initial upvote might be offset back to $0$ and vice versa
+the posts in the control group might appear with a random upvote/s. One possible way
+we could have addressed this in our study would be to collect multiple measurements of the same post
+and then average them out, but this would require a lot more computational time
+and resources. Another way would be to collect other metrics of quality such as the number of comments
+since they are not being altered with by the fuzzing mechanism.
+
+Additionally, by choosing a very broad subreddit (r/all) we might have introduced 
+moderating variables in terms of the diverse user bases that interact with the posts. 
+These variables
+could in turn influence the strength of the relationship between the independent
+and dependent variable. Focusing on a more specific user base, such as
+football fans or gamers, could have helped to control for this effect more effectively.
+Another extraneous factor that might be present are intervening variables, a type of variables that are affected by the independent
+variable and in turn affect the dependent variable.
+For instance the reddit ranking algorithm might favour posts which were upvoted early on
+and thus simply make them appear higher on the page. So the popularity of the post
+could be attributed to the ranking algorithm rather than the herding effect. 
+
+
+
+Our methods for statistical significance testing were also not without their limitations.
+For instance the bootstrapping approach operates under the assumption that our sampled data 
+is a correct representation of the true population. If this assumption does not hold
+then the results would be misleading.
+
+Despite the limitations and complexities associated with this 
+study, we hope that our experimental design and statistical 
+analyses offer valuable insights into the role of initial positive reinforcement and social 
+influence on post's popularity. For the sake of reproducibility, we also submit 
+our experiment code and collected data as a part of this report.
+
+
 \section{Conclusion}
+
+In this study, a randomised field experiment was conducted to examine the effect of an 
+initial upvote on the future score of a post on Reddit. After collecting and monitoring newly submitted posts
+for a period of 7 days we conducted a statistical analysis with Empirical Bootstrapping and a Kolmogorov-Smirnov test.
+The results showed no significant indication that an initial upvote has any effect on the future score of a post.
+However, due to the limitations such as the vote fuzzing mechanism, the results presented here should be interpreted with caution.
+
 
 % ----------------------------------------------------------------------
 % References 
