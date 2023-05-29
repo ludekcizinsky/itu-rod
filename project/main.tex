@@ -100,7 +100,7 @@ First, we removed the posts which were not continously monitored for a week and 
 to account for our initial upvote, we subtracted it from the posts' last day scores.
 This resulted in a total number of $1578$ posts, i.e. $789$ treated posts and $789$ control posts. 
 Finally, since we did not want to make assumptions about the underlying 
-distribution of the data, we used non-parametric tests, namely Empirical bootstrap and Kolmogorov-Smirnov test, to
+distribution of the data, we used non-parametric tests, namely Permutation test and Kolmogorov-Smirnov test, to
 confirm or reject the studied null hypothesis.
 
 \section{Results}
@@ -136,21 +136,19 @@ could be tested by looking at the observed difference of the means of both group
 and then asking a question, how likely it is to observe such a difference
 if the null hypothesis is true. If the probability of observing such a difference
 is low (less than the significance threshold $\alpha$), then we can reject the null hypothesis.
-Empirical bootstrap is a statistical technique that uses an empirical distribution 
-function as an estimate of the true distribution of data. Since
-the observed difference is itself a random variable we can use a bootstrap simulation
-to estimate the true distribution of mean differences and then calculate the probability.
-From the $1000$ bootstrapped mean values in Figure \ref{fig:bootstrap_both_means} of both groups we can observe both the mean difference
-and the larger spread of the control group. In order to test
+Permutation test is a statistical technique that uses the collected data to create 
+a distribution of the test statistic under the null hypothesis. Since
+the observed difference is itself a random variable we can use this simulation
+to estimate the distribution of mean differences under the null hypothesis from which the $p$-value can be infered. 
+From $1000$ bootstrapped mean values in Figure \ref{fig:bootstrap_both_means} of both groups we can observe the groups' mean difference
+and the larger spread in the control group. In order to test
 whether our observed difference is significant we used Figure \ref{fig:mean_difference},
-where the 1000 bootstrapped mean differences are plotted with a red and blue lines
-indicating the 95\% confidence interval. Since the confidence interval contains zero, the
-probability of both means being equal is above the significance threshold $\alpha = 0.05$ and 
-thus the null hypothesis cannot be rejected. 
-To find the exact $p$-value we can calculate
-the proportion of bootstrapped mean differences that are greater or equal to the observed difference.
-The $p$-value is $0.47$ showing that our observed difference could have happenned by a pure chance
-and that the initial upvote has no significant effect on the future score of a post.
+where $1000$ bootstrapped mean differences are plotted which have been randomly chosen 
+by shuffling the concatenation of the last day scores from both groups. The observed difference is marked
+with a red dashed line and the $p$-value can be calculated as the proportion of bootstrapped mean differences
+that are greater or equal to the observed difference. The $p$-value is $0.325$ which is above
+the significance threshold $\alpha = 0.05$ and thus the null hypothesis cannot be rejected.
+
 
 \begin{figure}[h]
   \centering
@@ -161,12 +159,12 @@ and that the initial upvote has no significant effect on the future score of a p
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.4\textwidth]{figures/mean_difference.png}
-  \caption{Bootstrapped means differences of control and treatment groups}
+  \includegraphics[width=0.4\textwidth]{figures/permutation_test.png}
+  \caption{Permutation test of the mean differences between the control and treatment groups. The red dashed line indicates the observed difference.}
   \label{fig:mean_difference}
 \end{figure}
 
-Since the empirical bootstrap is looking at a single statistic (e.g. the mean difference)
+Since the permutation test is looking at a single statistic (e.g. the mean difference)
 it does not take into account the whole distribution of the data. For this
 purpose we used the Kolmogorov-Smirnov (KS) test, which evaluates
 whether the overall distributions of both groups are the same. 
@@ -242,7 +240,7 @@ could be attributed to the ranking algorithm rather than the herding effect.
 
 
 Our methods for statistical significance testing were also not without their limitations.
-For instance the bootstrapping approach operates under the assumption that our sampled data 
+For instance the permutation approach operates under the assumption that our sampled data 
 is a correct representation of the true population. If this assumption does not hold
 then the results would be misleading.
 
@@ -257,7 +255,7 @@ our experiment code and collected data as a part of this report.
 
 In this study, a randomised field experiment was conducted to examine the effect of an 
 initial upvote on the future score of a post on Reddit. After collecting and monitoring newly submitted posts
-for a period of 7 days we conducted a statistical analysis with Empirical Bootstrapping and a Kolmogorov-Smirnov test.
+for a period of 7 days we conducted a statistical analysis with a Permutation test and a Kolmogorov-Smirnov test.
 The results showed no significant indication that an initial upvote has any effect on the future score of a post.
 However, due to the limitations such as the vote fuzzing mechanism, the results presented here should be interpreted with caution.
 
